@@ -11,14 +11,18 @@ Puzzlers book, this is an attempt to expand more of it and put the subtle parts 
   Return types and thrown exceptions are not considered to be a part of the method signature. 
   and the name of the parameter is not part of the method signature and is ignored by the compiler for checking method uniqueness.
 
- ## Integer Overflow 
- Various binary search methods in java.util.Arrays compute the average of
-two positive indices (ints) like this:
+## Integer Overflow 
+Various binary search methods in java.util.Arrays compute the average of two positive indices (ints) like this:
 
 	    int mid = (low + high) >> 1;
 
 but if low + high overflows into negative territory, the result is negative,
+
 probably giving undefined results.  An easy fix is the simple
 
 	    int mid = (low + high) >>> 1;
         
+## HashMap 
+
+### [HashMap race condition](http://mailinator.blogspot.fr/2009/06/beautiful-race-condition.html)
+    
